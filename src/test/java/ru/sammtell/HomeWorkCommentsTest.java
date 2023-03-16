@@ -77,5 +77,17 @@ public class HomeWorkCommentsTest {
 // параметризованный то мы должны определить ДАТА_ПРОВАЙДЕР - можно определить аннотацией (@ValueSource)
 //@ValueSource - принимает в себя все виды примитивов
 //@CsvSource - такой формат описания данных где значения разделяются запятой и это выглядит как таблица
+//@CsvSource({
+//            "JAVA,   Java | Oracle",
+//            "Python,  Welcome to Python.org"
+//    }) - чувствителен к запятым, и если есть лишние в тексте то нужно ввести
+
+
+//@CsvSource({
+//            "JAVA,   Java | Oracle",
+//            "Python,  Welcome to Python.org"
+//    },
+// delimiter = '|'
+//)
 //ЛИБО вот так можно @CsvFileSource(путь до файла с данными например @CsvFileSource(resources = "/testdata/searchResultsYahoo2.csv")
 //resources = означает и обязывает чтобы файлы обязаны быть в папке resources !!!
