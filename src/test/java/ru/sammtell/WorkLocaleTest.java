@@ -1,4 +1,5 @@
 package ru.sammtell;
+import jdk.jfr.Enabled;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -33,7 +34,9 @@ public class WorkLocaleTest {
         );
     }
 
-    @MethodSource("dataProvider")
+
+
+    @MethodSource("dataProvider") //@ Источник метода
     @ParameterizedTest(name = "Для локали {0} на сайте www.rzd.ru должен отображаться список кнопок {1}")
     @Tag("Smoke")
     void buttonsInDifferentLanguages(Locale locale, List<String> expectedButtons) {
