@@ -11,24 +11,26 @@ import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selenide.*;
 
+
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @DisplayName("Проверка работы выбора локали на сайте www.rzd.ru")
-public class WorkLokaleTest {
+public class WorkLocaleTest {
 
     static Stream<Arguments> dataProvider() {
         return Stream.of(
-Arguments.of(Locale.Eng, List.of("Passengers",
-                "Freight",
-                "The Company",
-                 "Investor Relations",
-                "Contacts",
-                "Аccessibility version")),
-        Arguments.of(Locale.Rus, List.of("Пассажирам",
-                "Грузовые перевозки",
-                "Компания",
-                "Работа в РЖД",
-                "Контакты",
-                "Версия для слабовидящих"))
-       );
+                Arguments.of(Locale.Eng, List.of("Passengers",
+                        "Freight",
+                        "The Company",
+                        "Investor Relations",
+                        "Contacts",
+                        "Аccessibility version")),
+                Arguments.of(Locale.Rus, List.of("Пассажирам",
+                        "Грузовые перевозки",
+                        "Компания",
+                        "Работа в РЖД",
+                        "Контакты",
+                        "Версия для слабовидящих"))
+        );
     }
 
     @MethodSource("dataProvider")

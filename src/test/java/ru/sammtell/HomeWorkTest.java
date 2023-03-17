@@ -48,7 +48,7 @@ public class HomeWorkTest {
         $("div.dd.algo").shouldHave(text(expectedText));
     }
 
-    @Disabled
+    //@Disabled
     @CsvFileSource(resources = "/testdata/searchResultsYahoo2.csv")
     @ParameterizedTest(name = "В результате поиска  по тексту {0} на сайте YAHOO.com должен отображаться текст {1}")
     @Tag("HIGH")
