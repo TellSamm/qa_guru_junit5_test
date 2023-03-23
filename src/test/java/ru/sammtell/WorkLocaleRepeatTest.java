@@ -1,5 +1,8 @@
 package ru.sammtell;
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
+import com.codeborne.selenide.Selenide;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -10,12 +13,18 @@ import java.util.stream.Stream;
 
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.visible;
-import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.$$;
 
 
 public class WorkLocaleRepeatTest {
 
+    @BeforeEach
+    static void openPracticeForm() {
+        Configuration.browserSize = "1920x1080";
+        //Configuration.browser ="firefox";
+        Selenide.open("https://selenide.org/");
+
+    }
     //Stream - Возвращает поток, состоящий из элементов этого потока, соответствующих заданному предикату.
     //Arguments- Получите аргументы, используемые для вызова метода @ParameterizedTest.
     static Stream<Arguments>dataProvider(){ //====> каркас для запуска тестов
@@ -35,7 +44,7 @@ public class WorkLocaleRepeatTest {
         //вместо String используем наш enum он же Locale2, а в качестве второго
         // (ожидаемого рез-та)
         // будем использовать List как список String-ов
-        open("https://selenide.org/");
+        //Selenide.open("https://selenide.org/");
         $$("#languages a").find(Condition.text(vyborYazika.name())).click(); //---> ищем две кнопки с помощью #languages a
         //далее находим по тексту, и используем встроенный метод enum ->
         // .name который перебирает в классе Locale2(emum) нужную локаль указанную там!
